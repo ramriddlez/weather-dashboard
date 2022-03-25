@@ -29,6 +29,7 @@ body{
     width: 100%;
     padding-right: 50px;
     margin-top: 50px;
+    position: absolute;
 }
 #icons{
     margin: 20px;
@@ -36,5 +37,6 @@ body{
     border: solid;
     flex-wrap: wrap;
     border-radius: 10px;
+    justify-content: space-around;
   
 }
