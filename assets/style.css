@@ -1,3 +1,6 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
 .center{
     align-items: center;
     display: flex;
@@ -11,4 +14,8 @@
     border-width: small;
     width: 90%;
 
+}
+#icons{
+    flex-direction: row;
+    display: flex;
 }
