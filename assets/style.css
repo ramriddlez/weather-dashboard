@@ -18,9 +18,23 @@ body{
     border-width: small;
     margin: 10px;
     background-color: rgb(255, 220, 177);
+    left: 1;
+    width: 50vh;
 
 }
-#icons{
+#icon-container{
     flex-direction: row;
     display: flex;
+    border: 2px solid black;
+    width: 100%;
+    padding-right: 50px;
+    margin-top: 50px;
+}
+#icons{
+    margin: 20px;
+    display: flex;
+    border: solid;
+    flex-wrap: wrap;
+    border-radius: 10px;
+  
 }
