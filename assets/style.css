@@ -1,18 +1,23 @@
 *{
     font-family: 'Poppins', sans-serif;
+    /* background-color: bisque; */
+}
+body{
+    background-color: bisque;
 }
 .center{
     align-items: center;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-bottom: 50px;
+
     
 }
 .current-weather{
     border: double;
     border-width: small;
-    width: 90%;
+    margin: 10px;
+    background-color: rgb(255, 220, 177);
 
 }
 #icons{
