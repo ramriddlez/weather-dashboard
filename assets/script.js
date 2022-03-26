@@ -1,7 +1,7 @@
 let apiKey = 'b813b67ed488211dda6eaa2cadfd9d27';
 let newCity = document.getElementById('city-input');
 let cityName = document.getElementById('cityName');
-let forecastDate = document.getElementById('forecastDate')
+
 
 
 
@@ -12,9 +12,8 @@ function GetInfo() {
     
 
     for (i = 0; i < 5; i++) {
-        forecastDate = moment().add(i,'days').format("dddd, MMM Do");
-        console.log(forecastDate)
-   }
+        document.getElementById('forecastDate' + (i+1)).innerHTML = moment().add(i,'days').format("dddd, MMM Do");
+    }
 
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + newCity.value + '&appid=' + apiKey)
 
