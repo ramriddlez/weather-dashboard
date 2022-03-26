@@ -7,7 +7,7 @@ function GetInfo() {
 
 
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + newCity.value + '&appid='+ apiKey)
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + newCity.value + '&appid=' + apiKey)
 
         .then(function (response) {
             // console.log(response) 
@@ -22,19 +22,47 @@ function GetInfo() {
 
                         let long = data.coord.lon;
                         let lat = data.coord.lat;
-                
 
-                        let oneCallAPI =  "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude={part}&units=metric&appid=" + apiKey
-                        // console.log(oneCallAPI)
+
+                        let oneCallAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude={part}&units=metric&appid=" + apiKey;
+                        
                         fetch(oneCallAPI)
-                        .then(function (response){
-                            if (response.ok) {
-                                response.json() //json the api resonse
-                                    .then(function (data){
-                            // console.log(data.current.uvi)
-                            document.getElementById('dayuv').innerHTML = "UV Index:  " + Number(data.current.uvi).toFixed(1);
-                        })}
+                            .then(function (response) {
+                                if (response.ok) {
+                                    response.json() //json the api resonse
+                                        .then(function (data) {
+                                            // console.log(data.current.uvi)
+                                            document.getElementById('dayuv').innerHTML = "UV Index:  " + Number(data.current.uvi).toFixed(1);
+                                            for (i = 0; i < 5; i++) {
+                                                document.getElementById("day" + (i + 1) + "temp").innerHTML = "Temp:  " + Number(data.current.temp).toFixed(1) + "°";
+                                                //Number(1.3450001).toFixed(2); // 1.35
+                                            }
+
+                                            for (i = 0; i < 5; i++) {
+                                                document.getElementById("day" + (i + 1) + "ws").innerHTML = "Windspeed:  " + Number(data.current.wind_speed).toFixed(1) + "m/s";
+                                            }
+                                            for (i = 0; i < 5; i++) {
+                                                document.getElementById("day" + (i + 1) + "humid").innerHTML = "Humidity:  " + Number(data.current.humidity).toFixed(1) + "%";
+                                            }
+                                            //------------------------------------------------------------
+
+                                            //Getting Weather Icons
+                                            // for (i = 0; i < 5; i++) {
+                                            //     document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" +
+                                            //         data.list[i].weather[0].icon
+                                            //         + ".png";
+                                            // }
+                                            //------------------------------------------------------------
+                                            
+
+
+                                        })
+
+                                        .catch(err => alert("Something Went Wrong: Try Checking Your Internet Coneciton"))
+                                }
+                            })
                     })
-            })
-        }})
-    }
+            }
+        })
+
+}
