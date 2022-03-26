@@ -1,6 +1,7 @@
 let apiKey = 'b813b67ed488211dda6eaa2cadfd9d27';
 let newCity = document.getElementById('city-input');
 let cityName = document.getElementById('cityName');
+let forecastDate = document.getElementById('forecastDate')
 
 
 
@@ -8,8 +9,12 @@ function GetInfo() {
     // let newCity = document.getElementById('city-input');
     // let cityName = document.getElementById('cityName');
     cityName.innerHTML = newCity.value + '  ' + moment().format("MM/DD/YYYY");
+    
 
-
+    for (i = 0; i < 5; i++) {
+        forecastDate = moment().add(i,'days').format("dddd, MMM Do");
+        console.log(forecastDate)
+   }
 
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + newCity.value + '&appid=' + apiKey)
 
@@ -35,7 +40,7 @@ function GetInfo() {
                                 if (response.ok) {
                                     response.json() //json the api resonse
                                         .then(function (data) {
-                                            console.log(data.current.uvi)
+                                            
                                             document.getElementById('dayuv').innerHTML = "UV Index:  " + Number(data.daily[0].uvi);
                                             let uvi = data.daily[0].uvi;
                                             if (uvi <= 2) {
@@ -58,10 +63,8 @@ function GetInfo() {
                                             for (i = 0; i < 5; i++) {
                                                 document.getElementById("day" + (i + 1) + "humid").innerHTML = "Humidity:  " + Number(data.daily[i].humidity).toFixed(1) + "%";
                                             }
-                                            // for (i = 0; i < 5; i++) {
-                                            //     document.getElementById("day" + (i + 1) + "uv").innerHTML = "UV Index:  " + Number(data.daily[i].uvi).toFixed(1) + "%";
-                                            // }
-                                            //------------------------------------------------------------
+                                        
+                                            // ------------------------------------------------------------
 
                                             //Getting Weather Icons
                                             for (i = 0; i < 5; i++) {
