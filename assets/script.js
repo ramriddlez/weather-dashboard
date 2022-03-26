@@ -15,7 +15,7 @@ function GetInfo() {
                 response.json() //json the api resonse
                     .then(function (data) {
 
-
+                        document.getElementById('icon').src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
                         document.getElementById('daytemp').innerHTML = "Temp:  " + Number(data.main.temp).toFixed(1) + '°F';
                         document.getElementById('dayws').innerHTML = "Wind Speed:  " + Number(data.wind.speed).toFixed(1) + 'm/s';
                         document.getElementById('dayhumid').innerHTML = "Humidity:  " + Number(data.main.humidity).toFixed(1) + '%';
@@ -34,24 +34,24 @@ function GetInfo() {
                                             // console.log(data.current.uvi)
                                             document.getElementById('dayuv').innerHTML = "UV Index:  " + Number(data.current.uvi).toFixed(1);
                                             for (i = 0; i < 5; i++) {
-                                                document.getElementById("day" + (i + 1) + "temp").innerHTML = "Temp:  " + Number(data.current.temp).toFixed(1) + "°";
+                                                document.getElementById("day" + (i + 1) + "temp").innerHTML = "Temp:  " + Number(data.daily[i].temp.day).toFixed(1) + "°";
                                                 //Number(1.3450001).toFixed(2); // 1.35
                                             }
 
                                             for (i = 0; i < 5; i++) {
-                                                document.getElementById("day" + (i + 1) + "ws").innerHTML = "Windspeed:  " + Number(data.current.wind_speed).toFixed(1) + "m/s";
+                                                document.getElementById("day" + (i + 1) + "ws").innerHTML = "Windspeed:  " + Number(data.daily[i].wind_speed).toFixed(1) + "m/s";
                                             }
                                             for (i = 0; i < 5; i++) {
-                                                document.getElementById("day" + (i + 1) + "humid").innerHTML = "Humidity:  " + Number(data.current.humidity).toFixed(1) + "%";
+                                                document.getElementById("day" + (i + 1) + "humid").innerHTML = "Humidity:  " + Number(data.daily[i].humidity).toFixed(1) + "%";
                                             }
                                             //------------------------------------------------------------
 
                                             //Getting Weather Icons
-                                            // for (i = 0; i < 5; i++) {
-                                            //     document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" +
-                                            //         data.list[i].weather[0].icon
-                                            //         + ".png";
-                                            // }
+                                            for (i = 0; i < 5; i++) {
+                                                document.getElementById("img" + (i + 1)).src = "http://openweathermap.org/img/wn/" +
+                                                    data.daily[i].weather[0].icon
+                                                    + ".png";
+                                            }
                                             //------------------------------------------------------------
                                             
 

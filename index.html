@@ -7,8 +7,8 @@
     <title>Weather Forecast</title>
     <!-- fontawesome-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -18,67 +18,80 @@
 
 <body>
     <div class="center">
-        <h1 id="title"> Weather Forecast</h1>
+        <h1 id="title"> Weather Forecast<i class="fas fa-cloud-moon-rain"></i></h1>
         <p id="city"> City: <input type="text" id="city-input" placeholder="enter city here.."></p>
         <button type="button" onClick="GetInfo()"> Analyze the weather!</button>
-    </div>
-    <div class="current-weather">
-        <h2 id="cityName">city name<p class='current-icon'></p>
-        </h2>
-        <p  id="daytemp">temperature</p>
-        <p  id="dayws">wind </p>
-        <p  id="dayhumid">humidity</p>
-        <p  id="dayuv">UV index</p>
+    </div> <br><br>
+    <section id="top">
+        <div class="current-weather">
+            <h2 id="cityName">city name</h2><img id="icon"></img>
+            <p id="daytemp">temperature</p>
+            <p id="dayws">wind </p>
+            <p id="dayhumid">humidity</p>
+            <p id="dayuv">UV index</p>
+        </div>
 
-
-    </div>
+            <div id="searchHistory" class="card">
+                <h2 class="card-header bg-info">Previous Searches</h2>
+                <!-- Empty div to hold previous search buttons from script.js -->
+                <div class="card-body">
+                    <!-- empty div to add buttons for search history -->
+                </div>
+                <button id="clearButton" type="click" class="btn btn-danger">Clear Search History</button>
+            </div>
+    </section>
     <div id="weather">
         <div id="icon-container">
             <div id="icons">
                 <p class="weather" id="day1"></p>
                 <div id="image">
-                    <img src='' alt='' class="img1" id="'img1"></div>
-                    <p class="temp" id="day1temp">temperature</p>
-                    <p class="wind-speed" id="day1ws">wind speed</p>
-                    <p class="humidity" id="day1humid">humidity</p>
+                    <img src='' alt='' class="img1" id="img1">
+                </div>
+                <p class="temp" id="day1temp">temperature</p>
+                <p class="wind-speed" id="day1ws">wind speed</p>
+                <p class="humidity" id="day1humid">humidity</p>
             </div>
             <div id="icons">
                 <p class="weather" id="day2"></p>
                 <div id="image">
-                    <img src='' alt='' class="img2" id="'img2"></div>
-                    <p class="temp" id="day2temp">temperature</p>
-                    <p class="wind-speed" id="day2ws">wind speed</p>
-                    <p class="humidity" id="day2humid">humidity</p>
-               
+                    <img src='' alt='' class="img2" id="img2">
+                </div>
+                <p class="temp" id="day2temp">temperature</p>
+                <p class="wind-speed" id="day2ws">wind speed</p>
+                <p class="humidity" id="day2humid">humidity</p>
+
             </div>
             <div id="icons">
                 <p class="weather" id="day3"></p>
                 <div id="image">
-                    <img src='' alt='' class="img3" id="'img3"></div>
-                    <p class="temp" id="day3temp">temperature</p>
-                    <p class="wind-speed" id="day3ws">wind speed</p>
-                    <p class="humidity" id="day3humid">humidity</p>
-                
+                    <img src='' alt='' class="img3" id="img3">
+                </div>
+                <p class="temp" id="day3temp">temperature</p>
+                <p class="wind-speed" id="day3ws">wind speed</p>
+                <p class="humidity" id="day3humid">humidity</p>
+
             </div>
             <div id="icons">
                 <p class="weather" id="day4"></p>
                 <div id="image">
-                    <img src='' alt='' class="img4" id="'img4"></div>
-                    <p  class="temp" id="day4temp">temperature</p>
-                    <p  class="wind-speed" id="day4ws">wind speed</p>
-                    <p  class="humidity" id="day4humid">humidity</p>
-                
+                    <img src='' alt='' class="img4" id="img4">
+                </div>
+                <p class="temp" id="day4temp">temperature</p>
+                <p class="wind-speed" id="day4ws">wind speed</p>
+                <p class="humidity" id="day4humid">humidity</p>
+
             </div>
             <div id="icons">
                 <p class="weather" id="day5"></p>
                 <div id="image">
-                    <img src='' alt='' class="img5" id="'img5"></div>
-                    <p class="temp" id="day5temp">temperature</p>
-                    <p class="wind-speed" id="day5ws">wind speed</p>
-                    <p class="humidity" id="day5humid">humidity</p>
+                    <img src='' alt='' class="img5" id="img5">
                 </div>
+                <p class="temp" id="day5temp">temperature</p>
+                <p class="wind-speed" id="day5ws">wind speed</p>
+                <p class="humidity" id="day5humid">humidity</p>
             </div>
         </div>
+    </div>
     </div>
 
 </body>
