@@ -1,10 +1,40 @@
 let apiKey = 'b813b67ed488211dda6eaa2cadfd9d27';
 
 function GetInfo() {
-let newCity = document.getElementById('city-input');
-let cityName = document.getElementById('cityName');
-cityName.innerHTML = newCity.value;
+    let newCity = document.getElementById('city-input');
+    let cityName = document.getElementById('cityName');
+    cityName.innerHTML = newCity.value + '  ' + moment().format("MM/DD/YYYY");
 
-}
 
-fetch('https://api.openweathermap.org/data/2.5/weather?q='+newCity.value+'&appid='+apiKey)
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + newCity.value + '&appid='+ apiKey)
+
+        .then(function (response) {
+            // console.log(response) 
+            if (response.ok) {
+                response.json() //json the api resonse
+                    .then(function (data) {
+
+
+                        document.getElementById('daytemp').innerHTML = "Temp:  " + Number(data.main.temp).toFixed(1) + '°F';
+                        document.getElementById('dayws').innerHTML = "Wind Speed:  " + Number(data.wind.speed).toFixed(1) + 'm/s';
+                        document.getElementById('dayhumid').innerHTML = "Humidity:  " + Number(data.main.humidity).toFixed(1) + '%';
+
+                        let long = data.coord.lon;
+                        let lat = data.coord.lat;
+                
+
+                        let oneCallAPI =  "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude={part}&units=metric&appid=" + apiKey
+                        // console.log(oneCallAPI)
+                        fetch(oneCallAPI)
+                        .then(function (response){
+                            if (response.ok) {
+                                response.json() //json the api resonse
+                                    .then(function (data){
+                            // console.log(data.current.uvi)
+                            document.getElementById('dayuv').innerHTML = "UV Index:  " + Number(data.current.uvi).toFixed(1);
+                        })}
+                    })
+            })
+        }})
+    }

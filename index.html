@@ -20,15 +20,15 @@
     <div class="center">
         <h1 id="title"> Weather Forecast</h1>
         <p id="city"> City: <input type="text" id="city-input" placeholder="enter city here.."></p>
-        <button> Analyze the weather!</button>
+        <button type="button" onClick="GetInfo()"> Analyze the weather!</button>
     </div>
     <div class="current-weather">
         <h2 id="cityName">city name<p class='current-icon'></p>
         </h2>
-        <p class="temp">temperature</p>
-        <p class="wind">wind </p>
-        <p class="humidity">humidity</p>
-        <p class="uv">UV index</p>
+        <p  id="daytemp">temperature</p>
+        <p  id="dayws">wind </p>
+        <p  id="dayhumid">humidity</p>
+        <p  id="dayuv">UV index</p>
 
 
     </div>
@@ -38,44 +38,44 @@
                 <p class="weather" id="day1"></p>
                 <div id="image">
                     <img src='' alt='' class="img1" id="'img1"></div>
-                    <p class="temp">temperature</p>
-                    <p class="wind-speed">wind speed</p>
-                    <p class="humidity">humidity</p>
+                    <p class="temp" id="day1temp">temperature</p>
+                    <p class="wind-speed" id="day1ws">wind speed</p>
+                    <p class="humidity" id="day1humid">humidity</p>
             </div>
             <div id="icons">
                 <p class="weather" id="day2"></p>
                 <div id="image">
                     <img src='' alt='' class="img2" id="'img2"></div>
-                    <p class="temp">temperature</p>
-                    <p class="wind-speed">wind speed</p>
-                    <p class="humidity">humidity</p>
+                    <p class="temp" id="day2temp">temperature</p>
+                    <p class="wind-speed" id="day2ws">wind speed</p>
+                    <p class="humidity" id="day2humid">humidity</p>
                
             </div>
             <div id="icons">
                 <p class="weather" id="day3"></p>
                 <div id="image">
                     <img src='' alt='' class="img3" id="'img3"></div>
-                    <p class="temp">temperature</p>
-                    <p class="wind-speed">wind speed</p>
-                    <p class="humidity">humidity</p>
+                    <p class="temp" id="day3temp">temperature</p>
+                    <p class="wind-speed" id="day3ws">wind speed</p>
+                    <p class="humidity" id="day3humid">humidity</p>
                 
             </div>
             <div id="icons">
                 <p class="weather" id="day4"></p>
                 <div id="image">
                     <img src='' alt='' class="img4" id="'img4"></div>
-                    <p  class="temp">temperature</p>
-                    <p  class="wind-speed">wind speed</p>
-                    <p  class="humidity">humidity</p>
+                    <p  class="temp" id="day4temp">temperature</p>
+                    <p  class="wind-speed" id="day4ws">wind speed</p>
+                    <p  class="humidity" id="day4humid">humidity</p>
                 
             </div>
             <div id="icons">
                 <p class="weather" id="day5"></p>
                 <div id="image">
                     <img src='' alt='' class="img5" id="'img5"></div>
-                    <p class="temp">temperature</p>
-                    <p class="wind-speed">wind speed</p>
-                    <p class="humidity">humidity</p>
+                    <p class="temp" id="day5temp">temperature</p>
+                    <p class="wind-speed" id="day5ws">wind speed</p>
+                    <p class="humidity" id="day5humid">humidity</p>
                 </div>
             </div>
         </div>
@@ -84,6 +84,7 @@
 </body>
 <!--my js -->
 <script src="assets/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
 </html>
