@@ -1,4 +1,4 @@
-# weather-dashboard
+# Weather Dashboard - 5 day forecast
 
 ## Table of Contents
 * [Description](#desc) <br>
